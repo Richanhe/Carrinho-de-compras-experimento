@@ -23,5 +23,10 @@ class Carrinho:
         return self.itens
     
     def total(self):
-        return sum([item['preco'] * item['quantidade'] for item in self.itens])
+        if not self.itens:
+            return 0
+        total = sum([item['preco'] * item['quantidade'] for item in self.itens])
+        if total < 150:
+            total += 20
+        return total
     
